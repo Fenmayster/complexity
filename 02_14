@@ -1,0 +1,76 @@
+def a(n):
+    s = 0                      # O(1)
+    for i in range(1, n + 1):  # O(n)
+        s += i                 # O(n)
+    return s                   # O(1)
+
+def b(n):
+    s = 0                        # O(1)
+    for i in range(n + 1):       # O(n)
+        s += i * i               # O(n)
+    return s                     # O(1)
+
+def c(n, a):
+    s = 0                        # O(1)
+    current_power = 1            # O(1)
+    for i in range(n + 1):       # O(n)
+        s += current_power       # O(n)
+        current_power *= a       # O(n)
+    return s                     # O(1)
+
+def d(n):
+    s = 1                        # O(1)  (для i=0: 0^0=1)
+    for i in range(1, n + 1):    # O(n)
+        current_power = 1        # O(n)
+        
+        for j in range(i):       # O(n^2) 
+            current_power *= i   # O(n^2)
+            
+        s += current_power       # O(n)
+    return s                     # O(1)
+
+def e(n):
+    p = 1                        # O(1)
+    for i in range(1, n + 1):    # O(n)
+        p *= 1 / (1 + i)         # O(n)
+    return p                     # O(1)
+
+def f(n):
+    p = 1                        # O(1)
+    current_fact = 1             # O(1)
+    for i in range(1, n + 1):    # O(n)
+        current_fact *= i        # O(n)
+        p *= 1 / (1 + current_fact) # O(n)
+    return p                     # O(1)
+
+def g(n, a):
+    p = 1                        # O(1)
+    current_fact = 1             # O(1)
+    current_power = 1            # O(1)
+    for i in range(1, n + 1):    # O(n)
+        current_power *= a       # O(n)
+        current_fact *= i        # O(n)
+        p *= current_power / (1 + current_fact) # O(n)
+    return p                     # O(1)
+
+def h(n, m):
+    p = 1                        # O(1)
+    for i in range(1, n + 1):    # O(n)
+        current_power = 1        # O(n)
+        
+        for j in range(m):       # O(n*m)
+            current_power *= i   # O(n*m)
+            
+        p *= 1 / (1 + current_power) # O(n)
+    return p                     # O(1)
+
+def i(n):
+    p = 1                        # O(1)
+    for i in range(1, n + 1):    # O(n)
+        current_power = 1        # O(n)
+        
+        for j in range(i):       # O(n^2)
+            current_power *= i   # O(n^2)
+            
+        p *= 1 / (1 + current_power) # O(n)
+    return p                     # O(1)
